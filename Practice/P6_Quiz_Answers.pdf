@@ -1,0 +1,50 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1571 >>
+stream
+BT /F2 15 Tf 42 800 Td (Quiz Questions - Answer Key) Tj ET
+BT /F2 10 Tf 42 776 Td (Week 8 Practice - Quiz Questions 1-10) Tj ET
+BT /F1 7.5 Tf 42 750.3 Td (1. C - Polymorphism. A common processor interacts uniformly with different event types.) Tj ET
+BT /F1 7.5 Tf 42 740.5999999999999 Td (2. C - Encapsulation. A private attribute changes only through a validating method.) Tj ET
+BT /F1 7.5 Tf 42 730.8999999999999 Td (3. C - Author 1 --- 1..* Book. Each book has exactly one author; an author writes one or more) Tj ET
+BT /F1 7.5 Tf 42 721.1999999999998 Td (books.) Tj ET
+BT /F1 7.5 Tf 42 711.4999999999998 Td (4. D - Composition. CartItem objects depend on their ShoppingCart owner for lifecycle.) Tj ET
+BT /F1 7.5 Tf 42 701.7999999999997 Td (5. D - Generalization. ProgrammingCourse is-a Course.) Tj ET
+BT /F1 7.5 Tf 42 692.0999999999997 Td (6. C - Realization. PdfDocument implements the Printable interface.) Tj ET
+BT /F1 7.5 Tf 42 682.3999999999996 Td (7. B - Association. Customer and Order are related without strong lifecycle ownership.) Tj ET
+BT /F1 7.5 Tf 42 672.6999999999996 Td (8. C - State diagram. It models states and allowed transitions of a Task.) Tj ET
+BT /F1 7.5 Tf 42 662.9999999999995 Td (9. B - Abstraction. ReportGenerator defines a contract without exposing concrete details.) Tj ET
+BT /F1 7.5 Tf 42 653.2999999999995 Td (10. C - Sequence diagram. It visualizes ordered messages passed between objects.) Tj ET
+BT /F1 7.5 Tf 42 643.5999999999995 Td (Answer letters in order: C, C, C, D, D, C, B, C, B, C.) Tj ET
+BT /F1 7 Tf 510 18 Td (1/1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000001873 00000 n 
+0000001941 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+2016
+%%EOF

@@ -1,0 +1,80 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 4992 >>
+stream
+BT /F2 15 Tf 42 800 Td (Payment Processing for a Shopping System) Tj ET
+BT /F2 10 Tf 42 776 Td (Week 8 Practice - Question 5) Tj ET
+BT /F1 7.5 Tf 42 750.3 Td (Design: Customer has Orders; Order contains one or more OrderItems referring to Product.) Tj ET
+BT /F1 7.5 Tf 42 740.5999999999999 Td (PaymentMethod is an interface;) Tj ET
+BT /F1 7.5 Tf 42 730.8999999999999 Td (CreditCardPayment, PayPalPayment, and BankTransferPayment implement it. Failed payment leaves) Tj ET
+BT /F1 7.5 Tf 42 721.1999999999998 Td (Order Pending.) Tj ET
+BT /F1 7.5 Tf 42 711.4999999999998 Td (Java solution:) Tj ET
+BT /F1 7.5 Tf 42 701.7999999999997 Td (import java.util.*;) Tj ET
+BT /F1 7.5 Tf 42 692.0999999999997 Td (class Product {final String name;final double price;Product\(String n,double) Tj ET
+BT /F1 7.5 Tf 42 682.3999999999996 Td (p\){name=n;price=p;}}) Tj ET
+BT /F1 7.5 Tf 42 672.6999999999996 Td (class OrderItem {final Product product;final int qty;OrderItem\(Product p,int q\){if\(q<=0\)throw) Tj ET
+BT /F1 7.5 Tf 42 662.9999999999995 Td (new IllegalArgumentException\("Quantity must be positive"\);product=p;qty=q;}double) Tj ET
+BT /F1 7.5 Tf 42 653.2999999999995 Td (total\(\){return product.price*qty;}}) Tj ET
+BT /F1 7.5 Tf 42 643.5999999999995 Td (class Customer {final String name;Customer\(String n\){name=n;}}) Tj ET
+BT /F1 7.5 Tf 42 633.8999999999994 Td (interface PaymentMethod {String name\(\);boolean processPayment\(double amount\);}) Tj ET
+BT /F1 7.5 Tf 42 624.1999999999994 Td (class CreditCardPayment implements PaymentMethod {public String name\(\){return "Credit) Tj ET
+BT /F1 7.5 Tf 42 614.4999999999993 Td (Card";}public boolean processPayment\(double a\){return true;}}) Tj ET
+BT /F1 7.5 Tf 42 604.7999999999993 Td (class PayPalPayment implements PaymentMethod {public String name\(\){return "PayPal";}public) Tj ET
+BT /F1 7.5 Tf 42 595.0999999999992 Td (boolean processPayment\(double a\){return false;}}) Tj ET
+BT /F1 7.5 Tf 42 585.3999999999992 Td (class BankTransferPayment implements PaymentMethod {public String name\(\){return "Bank) Tj ET
+BT /F1 7.5 Tf 42 575.6999999999991 Td (Transfer";}public boolean processPayment\(double a\){return true;}}) Tj ET
+BT /F1 7.5 Tf 42 565.9999999999991 Td (class Order {enum Status{Pending,Paid}final String id;final Customer customer;private final) Tj ET
+BT /F1 7.5 Tf 42 556.299999999999 Td (List<OrderItem> items=new ArrayList<>\(\);private Status status=Status.Pending;) Tj ET
+BT /F1 7.5 Tf 42 546.599999999999 Td (Order\(String i,Customer c\){id=i;customer=c;}void add\(Product p,int) Tj ET
+BT /F1 7.5 Tf 42 536.899999999999 Td (q\){if\(status==Status.Paid\)throw new IllegalStateException\("Order already paid"\);items.add\(new) Tj ET
+BT /F1 7.5 Tf 42 527.1999999999989 Td (OrderItem\(p,q\)\);}) Tj ET
+BT /F1 7.5 Tf 42 517.4999999999989 Td (double total\(\){return items.stream\(\).mapToDouble\(OrderItem::total\).sum\(\);}Status) Tj ET
+BT /F1 7.5 Tf 42 507.7999999999989 Td (status\(\){return status;}) Tj ET
+BT /F1 7.5 Tf 42 498.0999999999989 Td (void pay\(PaymentMethod m\){if\(items.isEmpty\(\)\)throw new IllegalStateException\("Cannot process) Tj ET
+BT /F1 7.5 Tf 42 488.3999999999989 Td (payment for an empty order."\);System.out.println\("Payment initiated via "+m.name\(\)+" for Order) Tj ET
+BT /F1 7.5 Tf 42 478.6999999999989 Td ("+id+"."\);boolean) Tj ET
+BT /F1 7.5 Tf 42 468.9999999999989 Td (ok=m.processPayment\(total\(\)\);if\(ok\)status=Status.Paid;System.out.println\("Payment for Order) Tj ET
+BT /F1 7.5 Tf 42 459.29999999999893 Td ("+id+\(ok?" successful.":" failed."\)\);System.out.println\("Order status: "+status+"."\);}}) Tj ET
+BT /F1 7.5 Tf 42 449.59999999999894 Td (public class Main {public static void main\(String[] args\){Order x=new Order\("X",new) Tj ET
+BT /F1 7.5 Tf 42 439.89999999999895 Td (Customer\("Customer X"\)\);System.out.println\("Order created for Customer X."\);x.add\(new) Tj ET
+BT /F1 7.5 Tf 42 430.19999999999897 Td (Product\("Product A",20\),2\);x.add\(new Product\("Product B",15\),1\);x.pay\(new) Tj ET
+BT /F1 7.5 Tf 42 420.499999999999 Td (CreditCardPayment\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 410.799999999999 Td (Order y=new Order\("Y",new Customer\("Customer Y"\)\);try{y.pay\(new) Tj ET
+BT /F1 7.5 Tf 42 401.099999999999 Td (CreditCardPayment\(\)\);}catch\(IllegalStateException e\){System.out.println\(e.getMessage\(\)\);}) Tj ET
+BT /F1 7.5 Tf 42 391.399999999999 Td (Order z=new Order\("Z",new Customer\("Customer Z"\)\);System.out.println\("Order created for) Tj ET
+BT /F1 7.5 Tf 42 381.699999999999 Td (Customer Z."\);z.add\(new Product\("Product C",12\),1\);z.pay\(new PayPalPayment\(\)\);}}) Tj ET
+BT /F1 7.5 Tf 42 371.99999999999903 Td (Expected: Credit Card succeeds and X becomes Paid; empty order is rejected; PayPal failure) Tj ET
+BT /F1 7.5 Tf 42 362.29999999999905 Td (leaves Z Pending.) Tj ET
+BT /F1 7.5 Tf 42 352.59999999999906 Td (Payment outcomes are simulated because no real payment gateway is defined in the source.) Tj ET
+BT /F1 7 Tf 510 18 Td (1/1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000005294 00000 n 
+0000005362 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+5437
+%%EOF

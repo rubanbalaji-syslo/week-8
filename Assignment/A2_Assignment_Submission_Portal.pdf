@@ -1,0 +1,87 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 5148 >>
+stream
+BT /F2 15 Tf 42 800 Td (The Assignment Submission Portal) Tj ET
+BT /F2 10 Tf 42 776 Td (Week 8 Coding Assignment - Question 2) Tj ET
+BT /F1 7.5 Tf 42 750.3 Td (Design: Student 1--0..* Submission; Assignment 1--0..* Submission. Assignment is abstract;) Tj ET
+BT /F1 7.5 Tf 42 740.5999999999999 Td (CodingAssignment and WrittenAssignment define different daily penalty rates.) Tj ET
+BT /F1 7.5 Tf 42 730.8999999999999 Td (Java solution:) Tj ET
+BT /F1 7.5 Tf 42 721.1999999999998 Td (import java.time.*; import java.time.temporal.ChronoUnit;) Tj ET
+BT /F1 7.5 Tf 42 711.4999999999998 Td (abstract class Assignment {) Tj ET
+BT /F1 7.5 Tf 42 701.7999999999997 Td (final String title; final int max; final LocalDate due;) Tj ET
+BT /F1 7.5 Tf 42 692.0999999999997 Td (Assignment\(String t,int m,LocalDate d\){title=t;max=m;due=d;}) Tj ET
+BT /F1 7.5 Tf 42 682.3999999999996 Td (abstract double dailyPenalty\(\);) Tj ET
+BT /F1 7.5 Tf 42 672.6999999999996 Td (double finalMarks\(double awarded,LocalDate submitted\){) Tj ET
+BT /F1 7.5 Tf 42 662.9999999999995 Td (long late=Math.max\(0,ChronoUnit.DAYS.between\(due,submitted\)\);) Tj ET
+BT /F1 7.5 Tf 42 653.2999999999995 Td (return awarded*Math.max\(0,1-late*dailyPenalty\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 643.5999999999995 Td (}) Tj ET
+BT /F1 7.5 Tf 42 633.8999999999994 Td (}) Tj ET
+BT /F1 7.5 Tf 42 624.1999999999994 Td (class CodingAssignment extends Assignment { CodingAssignment\(String t,int m,LocalDate) Tj ET
+BT /F1 7.5 Tf 42 614.4999999999993 Td (d\){super\(t,m,d\);} double dailyPenalty\(\){return .10;} }) Tj ET
+BT /F1 7.5 Tf 42 604.7999999999993 Td (class WrittenAssignment extends Assignment { WrittenAssignment\(String t,int m,LocalDate) Tj ET
+BT /F1 7.5 Tf 42 595.0999999999992 Td (d\){super\(t,m,d\);} double dailyPenalty\(\){return .20;} }) Tj ET
+BT /F1 7.5 Tf 42 585.3999999999992 Td (class Student { final String name; Student\(String n\){name=n;} }) Tj ET
+BT /F1 7.5 Tf 42 575.6999999999991 Td (class Submission {) Tj ET
+BT /F1 7.5 Tf 42 565.9999999999991 Td (enum Status { Submitted, Graded }) Tj ET
+BT /F1 7.5 Tf 42 556.299999999999 Td (final Student student; final Assignment task; final LocalDate submitted;) Tj ET
+BT /F1 7.5 Tf 42 546.599999999999 Td (private Status status=Status.Submitted; private Double marks;) Tj ET
+BT /F1 7.5 Tf 42 536.899999999999 Td (Submission\(Student s,Assignment a,LocalDate d\){student=s;task=a;submitted=d;}) Tj ET
+BT /F1 7.5 Tf 42 527.1999999999989 Td (Status status\(\){return status;}) Tj ET
+BT /F1 7.5 Tf 42 517.4999999999989 Td (double grade\(double awarded\){if\(status!=Status.Submitted\)throw new) Tj ET
+BT /F1 7.5 Tf 42 507.7999999999989 Td (IllegalStateException\("Already graded"\);) Tj ET
+BT /F1 7.5 Tf 42 498.0999999999989 Td (if\(awarded<0||awarded>task.max\)throw new IllegalArgumentException\("Invalid marks"\);) Tj ET
+BT /F1 7.5 Tf 42 488.3999999999989 Td (marks=task.finalMarks\(awarded,submitted\);status=Status.Graded;return marks;}) Tj ET
+BT /F1 7.5 Tf 42 478.6999999999989 Td (boolean canResubmit\(\){return status!=Status.Graded;}) Tj ET
+BT /F1 7.5 Tf 42 468.9999999999989 Td (}) Tj ET
+BT /F1 7.5 Tf 42 459.29999999999893 Td (public class Main { public static void main\(String[] args\){) Tj ET
+BT /F1 7.5 Tf 42 449.59999999999894 Td (Student a=new Student\("Asha"\),r=new Student\("Ravi"\);) Tj ET
+BT /F1 7.5 Tf 42 439.89999999999895 Td (Assignment c=new CodingAssignment\("Linked List Lab",50,LocalDate.of\(2026,3,10\)\);) Tj ET
+BT /F1 7.5 Tf 42 430.19999999999897 Td (Assignment w=new WrittenAssignment\("Design Essay",50,LocalDate.of\(2026,3,12\)\);) Tj ET
+BT /F1 7.5 Tf 42 420.499999999999 Td (Submission s1=new Submission\(a,c,LocalDate.of\(2026,3,10\)\);) Tj ET
+BT /F1 7.5 Tf 42 410.799999999999 Td (Submission s2=new Submission\(r,w,LocalDate.of\(2026,3,14\)\);) Tj ET
+BT /F1 7.5 Tf 42 401.099999999999 Td (System.out.println\("Asha's submission for Linked List Lab received \(on time\). Status:) Tj ET
+BT /F1 7.5 Tf 42 391.399999999999 Td ("+s1.status\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 381.699999999999 Td (System.out.println\("Ravi's submission for Design Essay received \(2 days late\). Status:) Tj ET
+BT /F1 7.5 Tf 42 371.99999999999903 Td ("+s2.status\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 362.29999999999905 Td (System.out.println\("Asha graded: "+s1.grade\(45\)+"/50. Status: "+s1.status\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 352.59999999999906 Td (System.out.println\("Ravi graded: "+s2.grade\(40\)+"/50 after 40% late penalty. Status:) Tj ET
+BT /F1 7.5 Tf 42 342.89999999999907 Td ("+s2.status\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 333.1999999999991 Td (if\(!s1.canResubmit\(\)\)System.out.println\("Cannot resubmit: Linked List Lab has already been) Tj ET
+BT /F1 7.5 Tf 42 323.4999999999991 Td (graded."\);) Tj ET
+BT /F1 7.5 Tf 42 313.7999999999991 Td (} }) Tj ET
+BT /F1 7.5 Tf 42 304.0999999999991 Td (Expected key results: Asha 45/50; Ravi 24/50 after two late days; status changes to Graded.) Tj ET
+BT /F1 7.5 Tf 42 294.3999999999991 Td (Submission owns its status; callers cannot modify it directly. Penalty rules belong to) Tj ET
+BT /F1 7.5 Tf 42 284.69999999999914 Td (Assignment subtypes.) Tj ET
+BT /F1 7 Tf 510 18 Td (1/1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000005450 00000 n 
+0000005518 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+5593
+%%EOF

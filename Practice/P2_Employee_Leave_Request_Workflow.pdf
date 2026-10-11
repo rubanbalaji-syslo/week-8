@@ -1,0 +1,80 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 4573 >>
+stream
+BT /F2 15 Tf 42 800 Td (Employee Leave Request Workflow) Tj ET
+BT /F2 10 Tf 42 776 Td (Week 8 Practice - Question 2) Tj ET
+BT /F1 7.5 Tf 42 750.3 Td (Design: Employee has many LeaveRequests. FullTimeEmployee, PartTimeEmployee, and Contractor) Tj ET
+BT /F1 7.5 Tf 42 740.5999999999999 Td (specialize Employee.) Tj ET
+BT /F1 7.5 Tf 42 730.8999999999999 Td (LeaveRequest privately manages Pending, Approved, Rejected and blocks a return to Pending) Tj ET
+BT /F1 7.5 Tf 42 721.1999999999998 Td (after review.) Tj ET
+BT /F1 7.5 Tf 42 711.4999999999998 Td (Java solution:) Tj ET
+BT /F1 7.5 Tf 42 701.7999999999997 Td (import java.time.*;) Tj ET
+BT /F1 7.5 Tf 42 692.0999999999997 Td (abstract class Employee {final String name;Employee\(String n\){name=n;}abstract boolean) Tj ET
+BT /F1 7.5 Tf 42 682.3999999999996 Td (canRequestLeave\(int days\);}) Tj ET
+BT /F1 7.5 Tf 42 672.6999999999996 Td (class FullTimeEmployee extends Employee {FullTimeEmployee\(String n\){super\(n\);}boolean) Tj ET
+BT /F1 7.5 Tf 42 662.9999999999995 Td (canRequestLeave\(int d\){return d>0;}}) Tj ET
+BT /F1 7.5 Tf 42 653.2999999999995 Td (class PartTimeEmployee extends Employee {PartTimeEmployee\(String n\){super\(n\);}boolean) Tj ET
+BT /F1 7.5 Tf 42 643.5999999999995 Td (canRequestLeave\(int d\){return d>0&&d<=10;}}) Tj ET
+BT /F1 7.5 Tf 42 633.8999999999994 Td (class Contractor extends Employee {Contractor\(String n\){super\(n\);}boolean canRequestLeave\(int) Tj ET
+BT /F1 7.5 Tf 42 624.1999999999994 Td (d\){return d>0&&d<=5;}}) Tj ET
+BT /F1 7.5 Tf 42 614.4999999999993 Td (class LeaveRequest {enum Status{Pending,Approved,Rejected}final Employee employee;final) Tj ET
+BT /F1 7.5 Tf 42 604.7999999999993 Td (LocalDate start,end;private Status status=Status.Pending;) Tj ET
+BT /F1 7.5 Tf 42 595.0999999999992 Td (LeaveRequest\(Employee e,LocalDate s,LocalDate en\){if\(en.isBefore\(s\)\)throw new) Tj ET
+BT /F1 7.5 Tf 42 585.3999999999992 Td (IllegalArgumentException\("Invalid dates"\);employee=e;start=s;end=en;}Status status\(\){return) Tj ET
+BT /F1 7.5 Tf 42 575.6999999999991 Td (status;}) Tj ET
+BT /F1 7.5 Tf 42 565.9999999999991 Td (void review\(boolean approve\){if\(status!=Status.Pending\)throw new) Tj ET
+BT /F1 7.5 Tf 42 556.299999999999 Td (IllegalStateException\("Request already) Tj ET
+BT /F1 7.5 Tf 42 546.599999999999 Td (reviewed"\);status=approve?Status.Approved:Status.Rejected;}) Tj ET
+BT /F1 7.5 Tf 42 536.899999999999 Td (void setStatus\(Status s\){if\(status!=Status.Pending||s==Status.Pending\)throw new) Tj ET
+BT /F1 7.5 Tf 42 527.1999999999989 Td (IllegalStateException\("Cannot change leave request status from "+status+" to "+s\);status=s;}) Tj ET
+BT /F1 7.5 Tf 42 517.4999999999989 Td (}) Tj ET
+BT /F1 7.5 Tf 42 507.7999999999989 Td (public class Main {public static void main\(String[] args\){Employee j=new) Tj ET
+BT /F1 7.5 Tf 42 498.0999999999989 Td (FullTimeEmployee\("John"\),n=new PartTimeEmployee\("Jane"\);) Tj ET
+BT /F1 7.5 Tf 42 488.3999999999989 Td (LeaveRequest a=new) Tj ET
+BT /F1 7.5 Tf 42 478.6999999999989 Td (LeaveRequest\(j,LocalDate.of\(2026,1,1\),LocalDate.of\(2026,1,5\)\);System.out.println\("Leave) Tj ET
+BT /F1 7.5 Tf 42 468.9999999999989 Td (request submitted for John \(Jan 1-5\). Status:) Tj ET
+BT /F1 7.5 Tf 42 459.29999999999893 Td ("+a.status\(\)+"."\);a.review\(true\);System.out.println\("John's leave request \(Jan 1-5\) approved.) Tj ET
+BT /F1 7.5 Tf 42 449.59999999999894 Td (Status: "+a.status\(\)+"."\);) Tj ET
+BT /F1 7.5 Tf 42 439.89999999999895 Td (LeaveRequest b=new) Tj ET
+BT /F1 7.5 Tf 42 430.19999999999897 Td (LeaveRequest\(n,LocalDate.of\(2026,2,10\),LocalDate.of\(2026,2,11\)\);System.out.println\("Leave) Tj ET
+BT /F1 7.5 Tf 42 420.499999999999 Td (request submitted for Jane \(Feb 10-11\). Status:) Tj ET
+BT /F1 7.5 Tf 42 410.799999999999 Td ("+b.status\(\)+"."\);b.review\(false\);System.out.println\("Jane's leave request \(Feb 10-11\)) Tj ET
+BT /F1 7.5 Tf 42 401.099999999999 Td (rejected. Status: "+b.status\(\)+"."\);) Tj ET
+BT /F1 7.5 Tf 42 391.399999999999 Td (try{a.setStatus\(LeaveRequest.Status.Pending\);}catch\(IllegalStateException) Tj ET
+BT /F1 7.5 Tf 42 381.699999999999 Td (e\){System.out.println\(e.getMessage\(\)\);}}}) Tj ET
+BT /F1 7.5 Tf 42 371.99999999999903 Td (Expected: John is Approved; Jane is Rejected; an Approved request cannot revert to Pending.) Tj ET
+BT /F1 7.5 Tf 42 362.29999999999905 Td (Numeric employee policy limits are illustrative because the source does not define exact) Tj ET
+BT /F1 7.5 Tf 42 352.59999999999906 Td (policy amounts.) Tj ET
+BT /F1 7 Tf 510 18 Td (1/1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000004875 00000 n 
+0000004943 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+5018
+%%EOF

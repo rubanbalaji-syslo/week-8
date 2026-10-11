@@ -1,0 +1,71 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 3997 >>
+stream
+BT /F2 15 Tf 42 800 Td (Vehicle Rental System) Tj ET
+BT /F2 10 Tf 42 776 Td (Week 8 Practice - Question 1) Tj ET
+BT /F1 7.5 Tf 42 750.3 Td (Design: Customer has many Rentals. Vehicle has at most one active Rental at a time; Sedan,) Tj ET
+BT /F1 7.5 Tf 42 740.5999999999999 Td (SUV, Truck override dailyRate\(\).) Tj ET
+BT /F1 7.5 Tf 42 730.8999999999999 Td (Source note: the prompt does not define exact rates, so this example uses Sedan $45/day, SUV) Tj ET
+BT /F1 7.5 Tf 42 721.1999999999998 Td ($70/day, Truck $100/day.) Tj ET
+BT /F1 7.5 Tf 42 711.4999999999998 Td (Java solution:) Tj ET
+BT /F1 7.5 Tf 42 701.7999999999997 Td (abstract class Vehicle {final String id;private boolean rented=false;Vehicle\(String) Tj ET
+BT /F1 7.5 Tf 42 692.0999999999997 Td (i\){id=i;}abstract double dailyRate\(\);boolean available\(\){return !rented;}void) Tj ET
+BT /F1 7.5 Tf 42 682.3999999999996 Td (rent\(\){if\(rented\)throw new IllegalStateException\(id+" is currently) Tj ET
+BT /F1 7.5 Tf 42 672.6999999999996 Td (unavailable."\);rented=true;}void returned\(\){rented=false;}double charge\(int) Tj ET
+BT /F1 7.5 Tf 42 662.9999999999995 Td (days\){if\(days<1\)throw new IllegalArgumentException\("Days must be positive"\);return) Tj ET
+BT /F1 7.5 Tf 42 653.2999999999995 Td (days*dailyRate\(\);}}) Tj ET
+BT /F1 7.5 Tf 42 643.5999999999995 Td (class Sedan extends Vehicle {Sedan\(String i\){super\(i\);}double dailyRate\(\){return 45;}}) Tj ET
+BT /F1 7.5 Tf 42 633.8999999999994 Td (class SUV extends Vehicle {SUV\(String i\){super\(i\);}double dailyRate\(\){return 70;}}) Tj ET
+BT /F1 7.5 Tf 42 624.1999999999994 Td (class Truck extends Vehicle {Truck\(String i\){super\(i\);}double dailyRate\(\){return 100;}}) Tj ET
+BT /F1 7.5 Tf 42 614.4999999999993 Td (class Customer {final String name;Customer\(String n\){name=n;}}) Tj ET
+BT /F1 7.5 Tf 42 604.7999999999993 Td (class Rental {final Customer customer;final Vehicle vehicle;final int days;boolean) Tj ET
+BT /F1 7.5 Tf 42 595.0999999999992 Td (active=true;Rental\(Customer c,Vehicle v,int d\){customer=c;vehicle=v;days=d;}void) Tj ET
+BT /F1 7.5 Tf 42 585.3999999999992 Td (returnVehicle\(\){if\(active\){active=false;vehicle.returned\(\);}}}) Tj ET
+BT /F1 7.5 Tf 42 575.6999999999991 Td (class RentalDesk {Rental rent\(Customer c,Vehicle v,int days\){if\(!v.available\(\)\)throw new) Tj ET
+BT /F1 7.5 Tf 42 565.9999999999991 Td (IllegalStateException\(v.id+" is currently unavailable."\);v.rent\(\);return new) Tj ET
+BT /F1 7.5 Tf 42 556.299999999999 Td (Rental\(c,v,days\);}}) Tj ET
+BT /F1 7.5 Tf 42 546.599999999999 Td (public class Main {public static void main\(String[] args\){RentalDesk d=new) Tj ET
+BT /F1 7.5 Tf 42 536.899999999999 Td (RentalDesk\(\);Vehicle sedan=new Sedan\("Sedan A"\),suv=new SUV\("SUV B"\);) Tj ET
+BT /F1 7.5 Tf 42 527.1999999999989 Td (Rental r=d.rent\(new Customer\("Customer 1"\),sedan,3\);System.out.println\("Sedan A rented) Tj ET
+BT /F1 7.5 Tf 42 517.4999999999989 Td (successfully by Customer 1. Rental charge: $"+r.vehicle.charge\(3\)\);) Tj ET
+BT /F1 7.5 Tf 42 507.7999999999989 Td (try{d.rent\(new Customer\("Customer 2"\),sedan,2\);}catch\(IllegalStateException) Tj ET
+BT /F1 7.5 Tf 42 498.0999999999989 Td (e\){System.out.println\(e.getMessage\(\)\);}) Tj ET
+BT /F1 7.5 Tf 42 488.3999999999989 Td (r.returnVehicle\(\);System.out.println\("Sedan A returned by Customer 1."\);Rental s=d.rent\(new) Tj ET
+BT /F1 7.5 Tf 42 478.6999999999989 Td (Customer\("Customer 3"\),suv,5\);System.out.println\("SUV B rented successfully by Customer 3.) Tj ET
+BT /F1 7.5 Tf 42 468.9999999999989 Td (Rental charge: $"+s.vehicle.charge\(5\)\);}}) Tj ET
+BT /F1 7.5 Tf 42 459.29999999999893 Td (Expected result with example rates: Sedan A $135, SUV B $350. Returning the vehicle re-enables) Tj ET
+BT /F1 7.5 Tf 42 449.59999999999894 Td (future rentals.) Tj ET
+BT /F1 7.5 Tf 42 439.89999999999895 Td (New categories can extend Vehicle with a different dailyRate without modifying RentalDesk.) Tj ET
+BT /F1 7 Tf 510 18 Td (1/1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000004299 00000 n 
+0000004367 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+4442
+%%EOF

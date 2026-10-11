@@ -1,0 +1,84 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 5102 >>
+stream
+BT /F2 15 Tf 42 800 Td (The Campus Premiere Ticket Counter) Tj ET
+BT /F2 10 Tf 42 776 Td (Week 8 Coding Assignment - Question 3) Tj ET
+BT /F1 7.5 Tf 42 750.3 Td (Design: Customer 1--0..* Booking; Show 1--0..* Booking. Booking has 1..6 seats.) Tj ET
+BT /F1 7.5 Tf 42 740.5999999999999 Td (Show reserves unique seat IDs. A SeatType strategy provides its category-specific price.) Tj ET
+BT /F1 7.5 Tf 42 730.8999999999999 Td (Java solution:) Tj ET
+BT /F1 7.5 Tf 42 721.1999999999998 Td (import java.util.*;) Tj ET
+BT /F1 7.5 Tf 42 711.4999999999998 Td (interface SeatType { double price\(\); }) Tj ET
+BT /F1 7.5 Tf 42 701.7999999999997 Td (class Regular implements SeatType { public double price\(\){return 150;} }) Tj ET
+BT /F1 7.5 Tf 42 692.0999999999997 Td (class Premium implements SeatType { public double price\(\){return 250;} }) Tj ET
+BT /F1 7.5 Tf 42 682.3999999999996 Td (class Recliner implements SeatType { public double price\(\){return 400;} }) Tj ET
+BT /F1 7.5 Tf 42 672.6999999999996 Td (class Seat { final String id; final SeatType type; Seat\(String i,SeatType t\){id=i;type=t;} }) Tj ET
+BT /F1 7.5 Tf 42 662.9999999999995 Td (class Customer { final String name; Customer\(String n\){name=n;} }) Tj ET
+BT /F1 7.5 Tf 42 653.2999999999995 Td (class Show { final Set<String> booked=new HashSet<>\(\); boolean started=false; }) Tj ET
+BT /F1 7.5 Tf 42 643.5999999999995 Td (class Booking {) Tj ET
+BT /F1 7.5 Tf 42 633.8999999999994 Td (final Customer customer; final Show show; final List<Seat> seats; boolean cancelled=false;) Tj ET
+BT /F1 7.5 Tf 42 624.1999999999994 Td (Booking\(Customer c,Show s,List<Seat> ss\){customer=c;show=s;seats=new ArrayList<>\(ss\);}) Tj ET
+BT /F1 7.5 Tf 42 614.4999999999993 Td (double total\(\){return seats.stream\(\).mapToDouble\(s->s.type.price\(\)\).sum\(\);}) Tj ET
+BT /F1 7.5 Tf 42 604.7999999999993 Td (boolean cancel\(\){if\(cancelled||show.started\)return false;for\(Seat) Tj ET
+BT /F1 7.5 Tf 42 595.0999999999992 Td (s:seats\)show.booked.remove\(s.id\);cancelled=true;return true;}) Tj ET
+BT /F1 7.5 Tf 42 585.3999999999992 Td (}) Tj ET
+BT /F1 7.5 Tf 42 575.6999999999991 Td (class TicketDesk {) Tj ET
+BT /F1 7.5 Tf 42 565.9999999999991 Td (Booking book\(Customer c,Show show,List<Seat> seats\){) Tj ET
+BT /F1 7.5 Tf 42 556.299999999999 Td (if\(seats.isEmpty\(\)||seats.size\(\)>6\)throw new IllegalArgumentException\("Choose 1 to 6 seats"\);) Tj ET
+BT /F1 7.5 Tf 42 546.599999999999 Td (Set<String> wanted=new HashSet<>\(\);for\(Seat s:seats\){if\(!wanted.add\(s.id\)\)throw new) Tj ET
+BT /F1 7.5 Tf 42 536.899999999999 Td (IllegalArgumentException\("Duplicate seat "+s.id\);if\(show.booked.contains\(s.id\)\)throw new) Tj ET
+BT /F1 7.5 Tf 42 527.1999999999989 Td (IllegalStateException\("Seat "+s.id+" is already booked for this show."\);}) Tj ET
+BT /F1 7.5 Tf 42 517.4999999999989 Td (show.booked.addAll\(wanted\);return new Booking\(c,show,seats\);) Tj ET
+BT /F1 7.5 Tf 42 507.7999999999989 Td (}) Tj ET
+BT /F1 7.5 Tf 42 498.0999999999989 Td (}) Tj ET
+BT /F1 7.5 Tf 42 488.3999999999989 Td (public class Main { public static void main\(String[] args\){) Tj ET
+BT /F1 7.5 Tf 42 478.6999999999989 Td (TicketDesk d=new TicketDesk\(\);Show show=new Show\(\);Customer a=new Customer\("Asha"\),r=new) Tj ET
+BT /F1 7.5 Tf 42 468.9999999999989 Td (Customer\("Ravi"\),n=new Customer\("Neha"\);) Tj ET
+BT /F1 7.5 Tf 42 459.29999999999893 Td (Booking b=d.book\(a,show,Arrays.asList\(new Seat\("A1",new Regular\(\)\),new Seat\("A2",new) Tj ET
+BT /F1 7.5 Tf 42 449.59999999999894 Td (Regular\(\)\),new Seat\("F5",new Premium\(\)\)\)\);) Tj ET
+BT /F1 7.5 Tf 42 439.89999999999895 Td (System.out.printf\("Booking confirmed for Asha: A1, A2, F5. Total: Rs %.2f.%n",b.total\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 430.19999999999897 Td (try{d.book\(r,show,Arrays.asList\(new Seat\("A2",new Regular\(\)\)\)\);}catch\(IllegalStateException) Tj ET
+BT /F1 7.5 Tf 42 420.499999999999 Td (e\){System.out.println\(e.getMessage\(\)\);}) Tj ET
+BT /F1 7.5 Tf 42 410.799999999999 Td (Booking rb=d.book\(r,show,Arrays.asList\(new Seat\("R1",new) Tj ET
+BT /F1 7.5 Tf 42 401.099999999999 Td (Recliner\(\)\)\)\);System.out.printf\("Booking confirmed for Ravi: R1. Total: Rs) Tj ET
+BT /F1 7.5 Tf 42 391.399999999999 Td (%.2f.%n",rb.total\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 381.699999999999 Td (if\(b.cancel\(\)\)System.out.println\("Asha's booking cancelled. Seats A1, A2, F5 released."\);) Tj ET
+BT /F1 7.5 Tf 42 371.99999999999903 Td (Booking nb=d.book\(n,show,Arrays.asList\(new Seat\("A2",new) Tj ET
+BT /F1 7.5 Tf 42 362.29999999999905 Td (Regular\(\)\)\)\);System.out.printf\("Booking confirmed for Neha: A2. Total: Rs) Tj ET
+BT /F1 7.5 Tf 42 352.59999999999906 Td (%.2f.%n",nb.total\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 342.89999999999907 Td (} }) Tj ET
+BT /F1 7.5 Tf 42 333.1999999999991 Td (Expected totals: Asha Rs 550.00; Ravi Rs 400.00; Neha Rs 150.00.) Tj ET
+BT /F1 7.5 Tf 42 323.4999999999991 Td (Cancellation is rejected once show.started is true and releases every seat for a valid) Tj ET
+BT /F1 7.5 Tf 42 313.7999999999991 Td (cancellation.) Tj ET
+BT /F1 7 Tf 510 18 Td (1/1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000005404 00000 n 
+0000005472 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+5547
+%%EOF

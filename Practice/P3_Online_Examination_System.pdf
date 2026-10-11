@@ -1,0 +1,79 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 4891 >>
+stream
+BT /F2 15 Tf 42 800 Td (Online Examination System) Tj ET
+BT /F2 10 Tf 42 776 Td (Week 8 Practice - Question 3) Tj ET
+BT /F1 7.5 Tf 42 750.3 Td (Design: Student has many Attempts; an Examination has multiple Questions; Attempt stores) Tj ET
+BT /F1 7.5 Tf 42 740.5999999999999 Td (answers and has InProgress/Submitted state.) Tj ET
+BT /F1 7.5 Tf 42 730.8999999999999 Td (Each question subtype implements its own evaluation, so adding a new type does not change) Tj ET
+BT /F1 7.5 Tf 42 721.1999999999998 Td (submission logic.) Tj ET
+BT /F1 7.5 Tf 42 711.4999999999998 Td (Java solution:) Tj ET
+BT /F1 7.5 Tf 42 701.7999999999997 Td (import java.util.*;) Tj ET
+BT /F1 7.5 Tf 42 692.0999999999997 Td (abstract class Question {final String id;final int points;Question\(String i,int) Tj ET
+BT /F1 7.5 Tf 42 682.3999999999996 Td (p\){id=i;points=p;}abstract boolean correct\(String answer\);}) Tj ET
+BT /F1 7.5 Tf 42 672.6999999999996 Td (class MultipleChoiceQuestion extends Question {final String key;MultipleChoiceQuestion\(String) Tj ET
+BT /F1 7.5 Tf 42 662.9999999999995 Td (i,int p,String k\){super\(i,p\);key=k;}boolean correct\(String a\){return) Tj ET
+BT /F1 7.5 Tf 42 653.2999999999995 Td (key.equalsIgnoreCase\(a\);}}) Tj ET
+BT /F1 7.5 Tf 42 643.5999999999995 Td (class TrueFalseQuestion extends Question {final boolean key;TrueFalseQuestion\(String i,int) Tj ET
+BT /F1 7.5 Tf 42 633.8999999999994 Td (p,boolean k\){super\(i,p\);key=k;}boolean correct\(String a\){return) Tj ET
+BT /F1 7.5 Tf 42 624.1999999999994 Td (Boolean.toString\(key\).equalsIgnoreCase\(a\);}}) Tj ET
+BT /F1 7.5 Tf 42 614.4999999999993 Td (class ShortAnswerQuestion extends Question {final String key;ShortAnswerQuestion\(String i,int) Tj ET
+BT /F1 7.5 Tf 42 604.7999999999993 Td (p,String k\){super\(i,p\);key=k;}boolean correct\(String a\){return) Tj ET
+BT /F1 7.5 Tf 42 595.0999999999992 Td (a!=null&&key.equalsIgnoreCase\(a.trim\(\)\);}}) Tj ET
+BT /F1 7.5 Tf 42 585.3999999999992 Td (class Student {final String id;Student\(String i\){id=i;}}) Tj ET
+BT /F1 7.5 Tf 42 575.6999999999991 Td (class Examination {final String title;final List<Question> questions;Examination\(String) Tj ET
+BT /F1 7.5 Tf 42 565.9999999999991 Td (t,List<Question> q\){title=t;questions=new ArrayList<>\(q\);}}) Tj ET
+BT /F1 7.5 Tf 42 556.299999999999 Td (class Attempt {enum Status{InProgress,Submitted}final Student student;final Examination) Tj ET
+BT /F1 7.5 Tf 42 546.599999999999 Td (exam;private final Map<Question,String> answers=new HashMap<>\(\);private Status) Tj ET
+BT /F1 7.5 Tf 42 536.899999999999 Td (status=Status.InProgress;) Tj ET
+BT /F1 7.5 Tf 42 527.1999999999989 Td (Attempt\(Student s,Examination e\){student=s;exam=e;}void answer\(Question q,String) Tj ET
+BT /F1 7.5 Tf 42 517.4999999999989 Td (a\){if\(status==Status.Submitted\)throw new IllegalStateException\("Cannot change answers for a) Tj ET
+BT /F1 7.5 Tf 42 507.7999999999989 Td (submitted examination."\);if\(!exam.questions.contains\(q\)\)throw new) Tj ET
+BT /F1 7.5 Tf 42 498.0999999999989 Td (IllegalArgumentException\("Question not in exam"\);answers.put\(q,a\);}) Tj ET
+BT /F1 7.5 Tf 42 488.3999999999989 Td (int submit\(\){if\(status==Status.Submitted\)throw new IllegalStateException\("Already) Tj ET
+BT /F1 7.5 Tf 42 478.6999999999989 Td (submitted"\);status=Status.Submitted;int score=0;for\(Question) Tj ET
+BT /F1 7.5 Tf 42 468.9999999999989 Td (q:exam.questions\)if\(q.correct\(answers.get\(q\)\)\)score+=q.points;return score;}}) Tj ET
+BT /F1 7.5 Tf 42 459.29999999999893 Td (public class Main {public static void main\(String[] args\){Student s=new Student\("Student) Tj ET
+BT /F1 7.5 Tf 42 449.59999999999894 Td (1"\);Question q1=new MultipleChoiceQuestion\("Q1",5,"C"\),q2=new) Tj ET
+BT /F1 7.5 Tf 42 439.89999999999895 Td (TrueFalseQuestion\("Q2",5,false\);Examination e=new Examination\("Exam) Tj ET
+BT /F1 7.5 Tf 42 430.19999999999897 Td (A",Arrays.asList\(q1,q2\)\);Attempt a=new Attempt\(s,e\);) Tj ET
+BT /F1 7.5 Tf 42 420.499999999999 Td (System.out.println\("Exam A started by Student 1."\);a.answer\(q1,"C"\);System.out.println\("Answer) Tj ET
+BT /F1 7.5 Tf 42 410.799999999999 Td (recorded for Question 1."\);a.answer\(q2,"True"\);System.out.println\("Answer recorded for) Tj ET
+BT /F1 7.5 Tf 42 401.099999999999 Td (Question 2."\);int score=a.submit\(\);System.out.println\("Exam A submitted by Student) Tj ET
+BT /F1 7.5 Tf 42 391.399999999999 Td (1."\);System.out.println\("Result: Question 1: Correct \(5 points\), Question 2: Incorrect \(0) Tj ET
+BT /F1 7.5 Tf 42 381.699999999999 Td (points\). Total score: "+score+"/10."\);) Tj ET
+BT /F1 7.5 Tf 42 371.99999999999903 Td (try{a.answer\(q1,"A"\);}catch\(IllegalStateException ex\){System.out.println\(ex.getMessage\(\)\);}}}) Tj ET
+BT /F1 7.5 Tf 42 362.29999999999905 Td (Expected score is 5/10 and the submitted attempt locks answers.) Tj ET
+BT /F1 7 Tf 510 18 Td (1/1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000005193 00000 n 
+0000005261 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+5336
+%%EOF

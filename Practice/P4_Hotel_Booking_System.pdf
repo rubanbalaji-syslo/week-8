@@ -1,0 +1,85 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 5647 >>
+stream
+BT /F2 15 Tf 42 800 Td (Hotel Booking System) Tj ET
+BT /F2 10 Tf 42 776 Td (Week 8 Practice - Question 4) Tj ET
+BT /F1 7.5 Tf 42 750.3 Td (Design: Customer has Reservations; each Room has historical reservations but no active) Tj ET
+BT /F1 7.5 Tf 42 740.5999999999999 Td (overlapping periods. Room types set nightly rates.) Tj ET
+BT /F1 7.5 Tf 42 730.8999999999999 Td (Assumption: the source does not specify rates or cancellation deadline, so the example rates) Tj ET
+BT /F1 7.5 Tf 42 721.1999999999998 Td (are Standard $80, Deluxe $130, Suite $220.) Tj ET
+BT /F1 7.5 Tf 42 711.4999999999998 Td (Java solution:) Tj ET
+BT /F1 7.5 Tf 42 701.7999999999997 Td (import java.time.*;import java.time.temporal.ChronoUnit;import java.util.*;) Tj ET
+BT /F1 7.5 Tf 42 692.0999999999997 Td (abstract class Room {final String id;Room\(String i\){id=i;}abstract double nightlyRate\(\);}) Tj ET
+BT /F1 7.5 Tf 42 682.3999999999996 Td (class StandardRoom extends Room {StandardRoom\(String i\){super\(i\);}double nightlyRate\(\){return) Tj ET
+BT /F1 7.5 Tf 42 672.6999999999996 Td (80;}}) Tj ET
+BT /F1 7.5 Tf 42 662.9999999999995 Td (class DeluxeRoom extends Room {DeluxeRoom\(String i\){super\(i\);}double nightlyRate\(\){return) Tj ET
+BT /F1 7.5 Tf 42 653.2999999999995 Td (130;}}) Tj ET
+BT /F1 7.5 Tf 42 643.5999999999995 Td (class Suite extends Room {Suite\(String i\){super\(i\);}double nightlyRate\(\){return 220;}}) Tj ET
+BT /F1 7.5 Tf 42 633.8999999999994 Td (class Customer {final String name;Customer\(String n\){name=n;}}) Tj ET
+BT /F1 7.5 Tf 42 624.1999999999994 Td (class Reservation {final Customer customer;final Room room;final LocalDate) Tj ET
+BT /F1 7.5 Tf 42 614.4999999999993 Td (start,end,cancelBy;boolean active=true;) Tj ET
+BT /F1 7.5 Tf 42 604.7999999999993 Td (Reservation\(Customer c,Room r,LocalDate s,LocalDate e,LocalDate cb\){if\(!e.isAfter\(s\)\)throw new) Tj ET
+BT /F1 7.5 Tf 42 595.0999999999992 Td (IllegalArgumentException\("Checkout must be after) Tj ET
+BT /F1 7.5 Tf 42 585.3999999999992 Td (check-in"\);customer=c;room=r;start=s;end=e;cancelBy=cb;}) Tj ET
+BT /F1 7.5 Tf 42 575.6999999999991 Td (double price\(\){return ChronoUnit.DAYS.between\(start,end\)*room.nightlyRate\(\);}) Tj ET
+BT /F1 7.5 Tf 42 565.9999999999991 Td (boolean overlaps\(Reservation r\){return) Tj ET
+BT /F1 7.5 Tf 42 556.299999999999 Td (active&&r.active&&room.id.equals\(r.room.id\)&&start.isBefore\(r.end\)&&r.start.isBefore\(end\);}) Tj ET
+BT /F1 7.5 Tf 42 546.599999999999 Td (boolean cancel\(LocalDate today\){if\(!active||today.isAfter\(cancelBy\)\)return) Tj ET
+BT /F1 7.5 Tf 42 536.899999999999 Td (false;active=false;return true;}}) Tj ET
+BT /F1 7.5 Tf 42 527.1999999999989 Td (class HotelDesk {final List<Reservation> all=new ArrayList<>\(\);boolean available\(Room) Tj ET
+BT /F1 7.5 Tf 42 517.4999999999989 Td (room,LocalDate s,LocalDate e\){Reservation test=new Reservation\(new) Tj ET
+BT /F1 7.5 Tf 42 507.7999999999989 Td (Customer\("check"\),room,s,e,s\);for\(Reservation r:all\)if\(test.overlaps\(r\)\)return false;return) Tj ET
+BT /F1 7.5 Tf 42 498.0999999999989 Td (true;}) Tj ET
+BT /F1 7.5 Tf 42 488.3999999999989 Td (Reservation reserve\(Customer c,Room r,LocalDate s,LocalDate e,LocalDate) Tj ET
+BT /F1 7.5 Tf 42 478.6999999999989 Td (deadline\){if\(!available\(r,s,e\)\)throw new IllegalStateException\(r.id+" is not available for) Tj ET
+BT /F1 7.5 Tf 42 468.9999999999989 Td (that period"\);Reservation x=new Reservation\(c,r,s,e,deadline\);all.add\(x\);return x;}}) Tj ET
+BT /F1 7.5 Tf 42 459.29999999999893 Td (public class Main {public static void main\(String[] args\){HotelDesk d=new HotelDesk\(\);Room) Tj ET
+BT /F1 7.5 Tf 42 449.59999999999894 Td (r=new StandardRoom\("Standard Room 101"\);LocalDate) Tj ET
+BT /F1 7.5 Tf 42 439.89999999999895 Td (s=LocalDate.of\(2026,1,1\),e=LocalDate.of\(2026,1,5\);) Tj ET
+BT /F1 7.5 Tf 42 430.19999999999897 Td (System.out.println\(r.id+" is available from Jan 1 to Jan 5."\);Reservation a=d.reserve\(new) Tj ET
+BT /F1 7.5 Tf 42 420.499999999999 Td (Customer\("Customer A"\),r,s,e,LocalDate.of\(2025,12,30\)\);System.out.printf\("Reservation) Tj ET
+BT /F1 7.5 Tf 42 410.799999999999 Td (confirmed for Customer A, Standard Room 101 \(Jan 1-5\). Price: $%.2f.%n",a.price\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 401.099999999999 Td (System.out.println\(r.id+" is) Tj ET
+BT /F1 7.5 Tf 42 391.399999999999 Td ("+\(d.available\(r,LocalDate.of\(2026,1,3\),LocalDate.of\(2026,1,7\)\)?"available":"not available"\)+") Tj ET
+BT /F1 7.5 Tf 42 381.699999999999 Td (from Jan 3 to Jan 7."\);if\(a.cancel\(LocalDate.of\(2025,12,29\)\)\)System.out.println\("Reservation) Tj ET
+BT /F1 7.5 Tf 42 371.99999999999903 Td (for Customer A, Standard Room 101 \(Jan 1-5\) cancelled successfully."\);) Tj ET
+BT /F1 7.5 Tf 42 362.29999999999905 Td (Room dlx=new DeluxeRoom\("Deluxe Room 201"\);Reservation c=d.reserve\(new Customer\("Customer) Tj ET
+BT /F1 7.5 Tf 42 352.59999999999906 Td (C"\),dlx,LocalDate.of\(2026,2,10\),LocalDate.of\(2026,2,12\),LocalDate.of\(2026,2,1\)\);System.out.printf\("Reservation) Tj ET
+BT /F1 7.5 Tf 42 342.89999999999907 Td (confirmed for Customer C, Deluxe Room 201 \(Feb 10-12\). Price: $%.2f.%n",c.price\(\)\);}}) Tj ET
+BT /F1 7.5 Tf 42 333.1999999999991 Td (Expected example totals: Standard $320.00 for four nights, Deluxe $260.00 for two nights.) Tj ET
+BT /F1 7.5 Tf 42 323.4999999999991 Td (Cancellation works only on/before cancelBy.) Tj ET
+BT /F1 7.5 Tf 42 313.7999999999991 Td (Date overlap uses half-open [check-in, checkout\) intervals, so checkout day is not charged as) Tj ET
+BT /F1 7.5 Tf 42 304.0999999999991 Td (an overnight stay.) Tj ET
+BT /F1 7 Tf 510 18 Td (1/1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000005949 00000 n 
+0000006017 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+6092
+%%EOF

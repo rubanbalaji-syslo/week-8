@@ -1,0 +1,80 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 4945 >>
+stream
+BT /F2 15 Tf 42 800 Td (The FitZone Membership Desk) Tj ET
+BT /F2 10 Tf 42 776 Td (Week 8 Coding Assignment - Question 4) Tj ET
+BT /F1 7.5 Tf 42 750.3 Td (Design: Member 1--0..* Membership; Membership 1--1 MembershipPlan. Plans calculate fees;) Tj ET
+BT /F1 7.5 Tf 42 740.5999999999999 Td (Membership owns and validates status transitions Active, Frozen, Expired.) Tj ET
+BT /F1 7.5 Tf 42 730.8999999999999 Td (Java solution:) Tj ET
+BT /F1 7.5 Tf 42 721.1999999999998 Td (interface MembershipPlan { String name\(\); int months\(\); double discount\(\); default double) Tj ET
+BT /F1 7.5 Tf 42 711.4999999999998 Td (calculateFee\(\){return 1000.0*months\(\)*\(1-discount\(\)\);} }) Tj ET
+BT /F1 7.5 Tf 42 701.7999999999997 Td (class Monthly implements MembershipPlan {public String name\(\){return "Monthly";}public int) Tj ET
+BT /F1 7.5 Tf 42 692.0999999999997 Td (months\(\){return 1;}public double discount\(\){return 0;}}) Tj ET
+BT /F1 7.5 Tf 42 682.3999999999996 Td (class Quarterly implements MembershipPlan {public String name\(\){return "Quarterly";}public int) Tj ET
+BT /F1 7.5 Tf 42 672.6999999999996 Td (months\(\){return 3;}public double discount\(\){return .10;}}) Tj ET
+BT /F1 7.5 Tf 42 662.9999999999995 Td (class Annual implements MembershipPlan {public String name\(\){return "Annual";}public int) Tj ET
+BT /F1 7.5 Tf 42 653.2999999999995 Td (months\(\){return 12;}public double discount\(\){return .25;}}) Tj ET
+BT /F1 7.5 Tf 42 643.5999999999995 Td (class Member {final String name;Membership membership;Member\(String n\){name=n;}}) Tj ET
+BT /F1 7.5 Tf 42 633.8999999999994 Td (class Membership {) Tj ET
+BT /F1 7.5 Tf 42 624.1999999999994 Td (enum Status {Active,Frozen,Expired} final Member member;final MembershipPlan plan;private) Tj ET
+BT /F1 7.5 Tf 42 614.4999999999993 Td (Status status=Status.Active;) Tj ET
+BT /F1 7.5 Tf 42 604.7999999999993 Td (Membership\(Member m,MembershipPlan p\){member=m;plan=p;} Status status\(\){return status;}) Tj ET
+BT /F1 7.5 Tf 42 595.0999999999992 Td (boolean checkIn\(\){return status==Status.Active;}) Tj ET
+BT /F1 7.5 Tf 42 585.3999999999992 Td (void freeze\(\){if\(status==Status.Expired\)throw new IllegalStateException\("Cannot freeze an) Tj ET
+BT /F1 7.5 Tf 42 575.6999999999991 Td (Expired membership."\);if\(status!=Status.Active\)throw new IllegalStateException\("Only Active) Tj ET
+BT /F1 7.5 Tf 42 565.9999999999991 Td (membership can be frozen."\);status=Status.Frozen;}) Tj ET
+BT /F1 7.5 Tf 42 556.299999999999 Td (void unfreeze\(\){if\(status==Status.Expired\)throw new IllegalStateException\("Cannot unfreeze an) Tj ET
+BT /F1 7.5 Tf 42 546.599999999999 Td (Expired membership."\);if\(status!=Status.Frozen\)throw new IllegalStateException\("Only Frozen) Tj ET
+BT /F1 7.5 Tf 42 536.899999999999 Td (membership can be unfrozen."\);status=Status.Active;}) Tj ET
+BT /F1 7.5 Tf 42 527.1999999999989 Td (void expire\(\){status=Status.Expired;}) Tj ET
+BT /F1 7.5 Tf 42 517.4999999999989 Td (}) Tj ET
+BT /F1 7.5 Tf 42 507.7999999999989 Td (public class Main {public static void main\(String[] args\){) Tj ET
+BT /F1 7.5 Tf 42 498.0999999999989 Td (Member a=new Member\("Asha"\),r=new Member\("Ravi"\);a.membership=new Membership\(a,new) Tj ET
+BT /F1 7.5 Tf 42 488.3999999999989 Td (Quarterly\(\)\);r.membership=new Membership\(r,new Monthly\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 478.6999999999989 Td (System.out.printf\("Quarterly membership created for Asha. Fee: Rs %.2f. Status:) Tj ET
+BT /F1 7.5 Tf 42 468.9999999999989 Td (%s.%n",a.membership.plan.calculateFee\(\),a.membership.status\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 459.29999999999893 Td (System.out.printf\("Monthly membership created for Ravi. Fee: Rs %.2f. Status:) Tj ET
+BT /F1 7.5 Tf 42 449.59999999999894 Td (%s.%n",r.membership.plan.calculateFee\(\),r.membership.status\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 439.89999999999895 Td (if\(a.membership.checkIn\(\)\)System.out.println\("Asha checked in) Tj ET
+BT /F1 7.5 Tf 42 430.19999999999897 Td (successfully."\);a.membership.freeze\(\);System.out.println\("Asha's membership frozen. Status:) Tj ET
+BT /F1 7.5 Tf 42 420.499999999999 Td (Frozen."\);) Tj ET
+BT /F1 7.5 Tf 42 410.799999999999 Td (if\(!a.membership.checkIn\(\)\)System.out.println\("Check-in denied: Asha's membership is) Tj ET
+BT /F1 7.5 Tf 42 401.099999999999 Td (Frozen."\);) Tj ET
+BT /F1 7.5 Tf 42 391.399999999999 Td (r.membership.expire\(\);System.out.println\("Ravi's membership expired. Status: Expired."\);) Tj ET
+BT /F1 7.5 Tf 42 381.699999999999 Td (try{r.membership.freeze\(\);}catch\(IllegalStateException e\){System.out.println\(e.getMessage\(\)\);}) Tj ET
+BT /F1 7.5 Tf 42 371.99999999999903 Td (} }) Tj ET
+BT /F1 7.5 Tf 42 362.29999999999905 Td (Expected fees: Quarterly Rs 2700.00; Monthly Rs 1000.00. Only Active memberships may check in.) Tj ET
+BT /F1 7.5 Tf 42 352.59999999999906 Td (To add Half-Yearly, implement MembershipPlan; no workflow change is needed.) Tj ET
+BT /F1 7 Tf 510 18 Td (1/1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000005247 00000 n 
+0000005315 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+5390
+%%EOF

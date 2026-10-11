@@ -1,0 +1,78 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 4706 >>
+stream
+BT /F2 15 Tf 42 800 Td (The Campus Notice Broadcaster) Tj ET
+BT /F2 10 Tf 42 776 Td (Week 8 Coding Assignment - Question 5) Tj ET
+BT /F1 7.5 Tf 42 750.3 Td (Design: NoticeBoard manages students and posts notices. A Student has one department and one) Tj ET
+BT /F1 7.5 Tf 42 740.5999999999999 Td (or more) Tj ET
+BT /F1 7.5 Tf 42 730.8999999999999 Td (NotificationChannel preferences. NotificationChannel is realized by EmailChannel, SmsChannel,) Tj ET
+BT /F1 7.5 Tf 42 721.1999999999998 Td (and AppChannel.) Tj ET
+BT /F1 7.5 Tf 42 711.4999999999998 Td (Java solution:) Tj ET
+BT /F1 7.5 Tf 42 701.7999999999997 Td (import java.util.*;) Tj ET
+BT /F1 7.5 Tf 42 692.0999999999997 Td (interface NotificationChannel {String name\(\);void send\(Student s,Notice n\);}) Tj ET
+BT /F1 7.5 Tf 42 682.3999999999996 Td (class EmailChannel implements NotificationChannel {public String name\(\){return "Email";}public) Tj ET
+BT /F1 7.5 Tf 42 672.6999999999996 Td (void send\(Student s,Notice n\){System.out.println\("[Email -> "+s.name+"] "+n.title\);}}) Tj ET
+BT /F1 7.5 Tf 42 662.9999999999995 Td (class SmsChannel implements NotificationChannel {public String name\(\){return "SMS";}public) Tj ET
+BT /F1 7.5 Tf 42 653.2999999999995 Td (void send\(Student s,Notice n\){System.out.println\("[SMS -> "+s.name+"] "+n.title\);}}) Tj ET
+BT /F1 7.5 Tf 42 643.5999999999995 Td (class AppChannel implements NotificationChannel {public String name\(\){return "App";}public) Tj ET
+BT /F1 7.5 Tf 42 633.8999999999994 Td (void send\(Student s,Notice n\){System.out.println\("[App -> "+s.name+"] "+n.title\);}}) Tj ET
+BT /F1 7.5 Tf 42 624.1999999999994 Td (class Student {final String name,department;final List<NotificationChannel>) Tj ET
+BT /F1 7.5 Tf 42 614.4999999999993 Td (channels;Student\(String n,String d,List<NotificationChannel>) Tj ET
+BT /F1 7.5 Tf 42 604.7999999999993 Td (c\){name=n;department=d;if\(c.isEmpty\(\)\)throw new IllegalArgumentException\("Choose at least one) Tj ET
+BT /F1 7.5 Tf 42 595.0999999999992 Td (channel"\);channels=new ArrayList<>\(c\);}}) Tj ET
+BT /F1 7.5 Tf 42 585.3999999999992 Td (class Notice {final String title;final Set<String> targets;Notice\(String t,Set<String>) Tj ET
+BT /F1 7.5 Tf 42 575.6999999999991 Td (d\){if\(t==null||t.trim\(\).isEmpty\(\)\)throw new IllegalArgumentException\("Notice title is) Tj ET
+BT /F1 7.5 Tf 42 565.9999999999991 Td (required"\);if\(d==null||d.isEmpty\(\)\)throw new IllegalArgumentException\("At least one target) Tj ET
+BT /F1 7.5 Tf 42 556.299999999999 Td (department is required"\);title=t;targets=new LinkedHashSet<>\(d\);}}) Tj ET
+BT /F1 7.5 Tf 42 546.599999999999 Td (class NoticeBoard {final List<Student> students=new ArrayList<>\(\);void add\(Student) Tj ET
+BT /F1 7.5 Tf 42 536.899999999999 Td (s\){students.add\(s\);}void post\(Notice n\){) Tj ET
+BT /F1 7.5 Tf 42 527.1999999999989 Td (System.out.println\("Notice '"+n.title+"' posted to "+String.join\(", ",n.targets\)+"."\);) Tj ET
+BT /F1 7.5 Tf 42 517.4999999999989 Td (for\(Student s:students\)if\(n.targets.contains\(s.department\)\)for\(NotificationChannel) Tj ET
+BT /F1 7.5 Tf 42 507.7999999999989 Td (c:s.channels\)c.send\(s,n\);) Tj ET
+BT /F1 7.5 Tf 42 498.0999999999989 Td (}}) Tj ET
+BT /F1 7.5 Tf 42 488.3999999999989 Td (public class Main {public static void main\(String[] args\){) Tj ET
+BT /F1 7.5 Tf 42 478.6999999999989 Td (NoticeBoard b=new NoticeBoard\(\);b.add\(new Student\("Asha","CSE",Arrays.asList\(new) Tj ET
+BT /F1 7.5 Tf 42 468.9999999999989 Td (EmailChannel\(\),new AppChannel\(\)\)\)\);b.add\(new Student\("Ravi","ECE",Arrays.asList\(new) Tj ET
+BT /F1 7.5 Tf 42 459.29999999999893 Td (SmsChannel\(\)\)\)\);) Tj ET
+BT /F1 7.5 Tf 42 449.59999999999894 Td (b.post\(new Notice\("Lab Closed Tomorrow",new LinkedHashSet<>\(Arrays.asList\("CSE"\)\)\)\);) Tj ET
+BT /F1 7.5 Tf 42 439.89999999999895 Td (b.post\(new Notice\("Fee Deadline Extended",new LinkedHashSet<>\(Arrays.asList\("CSE","ECE"\)\)\)\);) Tj ET
+BT /F1 7.5 Tf 42 430.19999999999897 Td (try{b.post\(new Notice\("Sports Day",Collections.emptySet\(\)\)\);}catch\(IllegalArgumentException) Tj ET
+BT /F1 7.5 Tf 42 420.499999999999 Td (e\){System.out.println\("Cannot post notice: "+e.getMessage\(\)\);}) Tj ET
+BT /F1 7.5 Tf 42 410.799999999999 Td (} }) Tj ET
+BT /F1 7.5 Tf 42 401.099999999999 Td (Expected output includes email and app messages for Asha, SMS messages for Ravi, and a) Tj ET
+BT /F1 7.5 Tf 42 391.399999999999 Td (rejection for an empty target list.) Tj ET
+BT /F1 7.5 Tf 42 381.699999999999 Td (NoticeBoard depends on the NotificationChannel abstraction; adding WhatsAppChannel does not) Tj ET
+BT /F1 7.5 Tf 42 371.99999999999903 Td (change posting logic.) Tj ET
+BT /F1 7 Tf 510 18 Td (1/1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000005008 00000 n 
+0000005076 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+5151
+%%EOF

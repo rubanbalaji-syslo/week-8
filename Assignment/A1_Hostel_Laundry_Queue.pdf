@@ -1,0 +1,81 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 4572 >>
+stream
+BT /F2 15 Tf 42 800 Td (The Hostel Laundry Queue) Tj ET
+BT /F2 10 Tf 42 776 Td (Week 8 Coding Assignment - Question 1) Tj ET
+BT /F1 7.5 Tf 42 750.3 Td (Design: Student 1--0..* WashCycle; WashingMachine 1--0..* historical WashCycle and at most one) Tj ET
+BT /F1 7.5 Tf 42 740.5999999999999 Td (active cycle.) Tj ET
+BT /F1 7.5 Tf 42 730.8999999999999 Td (WashCycle references one Student, one WashingMachine, and one WashType. WashType provides) Tj ET
+BT /F1 7.5 Tf 42 721.1999999999998 Td (duration and charge.) Tj ET
+BT /F1 7.5 Tf 42 711.4999999999998 Td (Java solution:) Tj ET
+BT /F1 7.5 Tf 42 701.7999999999997 Td (interface WashType { String name\(\); int durationMinutes\(\); double charge\(\); }) Tj ET
+BT /F1 7.5 Tf 42 692.0999999999997 Td (class Quick implements WashType { public String name\(\){return "Quick";} public int) Tj ET
+BT /F1 7.5 Tf 42 682.3999999999996 Td (durationMinutes\(\){return 30;} public double charge\(\){return 20;} }) Tj ET
+BT /F1 7.5 Tf 42 672.6999999999996 Td (class Normal implements WashType { public String name\(\){return "Normal";} public int) Tj ET
+BT /F1 7.5 Tf 42 662.9999999999995 Td (durationMinutes\(\){return 45;} public double charge\(\){return 30;} }) Tj ET
+BT /F1 7.5 Tf 42 653.2999999999995 Td (class Heavy implements WashType { public String name\(\){return "Heavy";} public int) Tj ET
+BT /F1 7.5 Tf 42 643.5999999999995 Td (durationMinutes\(\){return 60;} public double charge\(\){return 45;} }) Tj ET
+BT /F1 7.5 Tf 42 633.8999999999994 Td (class Student { final String name; Student\(String n\){name=n;} }) Tj ET
+BT /F1 7.5 Tf 42 624.1999999999994 Td (class WashCycle { final Student student; final WashType type; WashCycle\(Student s,WashType) Tj ET
+BT /F1 7.5 Tf 42 614.4999999999993 Td (t\){student=s;type=t;} }) Tj ET
+BT /F1 7.5 Tf 42 604.7999999999993 Td (class WashingMachine {) Tj ET
+BT /F1 7.5 Tf 42 595.0999999999992 Td (private final String id; private WashCycle active;) Tj ET
+BT /F1 7.5 Tf 42 585.3999999999992 Td (WashingMachine\(String id\){this.id=id;} boolean isFree\(\){return active==null;}) Tj ET
+BT /F1 7.5 Tf 42 575.6999999999991 Td (String start\(Student s,WashType t\){) Tj ET
+BT /F1 7.5 Tf 42 565.9999999999991 Td (if\(active!=null\)return "Machine "+id+" is currently busy.";) Tj ET
+BT /F1 7.5 Tf 42 556.299999999999 Td (active=new WashCycle\(s,t\);) Tj ET
+BT /F1 7.5 Tf 42 546.599999999999 Td (return t.name\(\)+" wash started on "+id+" for "+s.name+" \("+t.durationMinutes\(\)+" min\). Charge:) Tj ET
+BT /F1 7.5 Tf 42 536.899999999999 Td (Rs "+String.format\("%.2f",t.charge\(\)\)+".";) Tj ET
+BT /F1 7.5 Tf 42 527.1999999999989 Td (}) Tj ET
+BT /F1 7.5 Tf 42 517.4999999999989 Td (String complete\(\){if\(active==null\)return id+" has no active cycle.";active=null;return id+") Tj ET
+BT /F1 7.5 Tf 42 507.7999999999989 Td (cycle completed. "+id+" is now free.";}) Tj ET
+BT /F1 7.5 Tf 42 498.0999999999989 Td (}) Tj ET
+BT /F1 7.5 Tf 42 488.3999999999989 Td (public class Main { public static void main\(String[] args\){) Tj ET
+BT /F1 7.5 Tf 42 478.6999999999989 Td (WashingMachine m1=new WashingMachine\("M1"\),m2=new WashingMachine\("M2"\);) Tj ET
+BT /F1 7.5 Tf 42 468.9999999999989 Td (Student asha=new Student\("Asha"\),ravi=new Student\("Ravi"\),neha=new Student\("Neha"\);) Tj ET
+BT /F1 7.5 Tf 42 459.29999999999893 Td (System.out.println\(m1.start\(asha,new Quick\(\)\)\);) Tj ET
+BT /F1 7.5 Tf 42 449.59999999999894 Td (System.out.println\(m1.start\(ravi,new Heavy\(\)\)\);) Tj ET
+BT /F1 7.5 Tf 42 439.89999999999895 Td (System.out.println\(m2.start\(ravi,new Heavy\(\)\)\);) Tj ET
+BT /F1 7.5 Tf 42 430.19999999999897 Td (System.out.println\(m1.complete\(\)\);) Tj ET
+BT /F1 7.5 Tf 42 420.499999999999 Td (System.out.println\(m1.start\(neha,new Normal\(\)\)\);) Tj ET
+BT /F1 7.5 Tf 42 410.799999999999 Td (} }) Tj ET
+BT /F1 7.5 Tf 42 401.099999999999 Td (Expected output \(currency shown as Rs to keep source code ASCII\):) Tj ET
+BT /F1 7.5 Tf 42 391.399999999999 Td (Quick wash started on M1 for Asha \(30 min\). Charge: Rs 20.00.) Tj ET
+BT /F1 7.5 Tf 42 381.699999999999 Td (Machine M1 is currently busy.) Tj ET
+BT /F1 7.5 Tf 42 371.99999999999903 Td (Heavy wash started on M2 for Ravi \(60 min\). Charge: Rs 45.00.) Tj ET
+BT /F1 7.5 Tf 42 362.29999999999905 Td (M1 cycle completed. M1 is now free.) Tj ET
+BT /F1 7.5 Tf 42 352.59999999999906 Td (Normal wash started on M1 for Neha \(45 min\). Charge: Rs 30.00.) Tj ET
+BT /F1 7.5 Tf 42 342.89999999999907 Td (Extensibility: add Delicate by implementing WashType. Keep active-cycle state private.) Tj ET
+BT /F1 7 Tf 510 18 Td (1/1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000004874 00000 n 
+0000004942 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+5017
+%%EOF

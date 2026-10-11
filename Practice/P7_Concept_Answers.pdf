@@ -1,0 +1,64 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 3308 >>
+stream
+BT /F2 15 Tf 42 800 Td (Concept Questions - Answers) Tj ET
+BT /F2 10 Tf 42 776 Td (Week 8 Practice - Concept Questions 1-5) Tj ET
+BT /F1 7.5 Tf 42 750.3 Td (1. Encapsulation and email validation) Tj ET
+BT /F1 7.5 Tf 42 740.5999999999999 Td (The User object should keep email private and own its validation. A changeEmail\(newEmail\)) Tj ET
+BT /F1 7.5 Tf 42 730.8999999999999 Td (method checks format and uniqueness before updating the field. Direct unrestricted) Tj ET
+BT /F1 7.5 Tf 42 721.1999999999998 Td (modification could introduce malformed or duplicate email values. If validation fails, the old) Tj ET
+BT /F1 7.5 Tf 42 711.4999999999998 Td (valid email remains unchanged.) Tj ET
+BT /F1 7.5 Tf 42 701.7999999999997 Td (2. Inheritance versus composition for report features) Tj ET
+BT /F1 7.5 Tf 42 692.0999999999997 Td (Inheritance is useful for a real is-a specialization. DataExport and DataVisualization are) Tj ET
+BT /F1 7.5 Tf 42 682.3999999999996 Td (optional capabilities that vary independently, so composition is more flexible: a report can) Tj ET
+BT /F1 7.5 Tf 42 672.6999999999996 Td (combine either, both, or neither. A single inheritance hierarchy for every combination causes) Tj ET
+BT /F1 7.5 Tf 42 662.9999999999995 Td (rigid, combinatorial subclasses and makes features harder to extend.) Tj ET
+BT /F1 7.5 Tf 42 653.2999999999995 Td (3. Abstraction, overriding, and runtime polymorphism) Tj ET
+BT /F1 7.5 Tf 42 643.5999999999995 Td (Define a Notification interface with send\(\). EmailNotification, SMSNotification,) Tj ET
+BT /F1 7.5 Tf 42 633.8999999999994 Td (PushNotification, and InAppNotification override that method. NotificationService depends on) Tj ET
+BT /F1 7.5 Tf 42 624.1999999999994 Td (the interface and calls send\(\) without checking concrete types. At runtime Java invokes the) Tj ET
+BT /F1 7.5 Tf 42 614.4999999999993 Td (actual object's implementation, so adding InAppNotification does not require rewriting the) Tj ET
+BT /F1 7.5 Tf 42 604.7999999999993 Td (service.) Tj ET
+BT /F1 7.5 Tf 42 595.0999999999992 Td (4. Composition and aggregation) Tj ET
+BT /F1 7.5 Tf 42 585.3999999999992 Td (Composition is strong ownership and usually a shared lifecycle; aggregation is weaker) Tj ET
+BT /F1 7.5 Tf 42 575.6999999999991 Td (ownership where a part may survive independently. Organization-Department is composition here) Tj ET
+BT /F1 7.5 Tf 42 565.9999999999991 Td (because the organization's end dissolves departments. Department-Employee is aggregation) Tj ET
+BT /F1 7.5 Tf 42 556.299999999999 Td (because employees survive a department's dissolution and can move or be reassigned.) Tj ET
+BT /F1 7.5 Tf 42 546.599999999999 Td (5. Student-Course multiplicity and unique enrollment) Tj ET
+BT /F1 7.5 Tf 42 536.899999999999 Td (The relationship is many-to-many: one Student may take many Courses and one Course may have) Tj ET
+BT /F1 7.5 Tf 42 527.1999999999989 Td (many Students. Multiplicity describes how many instances participate; it does not forbid) Tj ET
+BT /F1 7.5 Tf 42 517.4999999999989 Td (duplicate enrollment records for one pair. Enforce the rule with a unique constraint on) Tj ET
+BT /F1 7.5 Tf 42 507.7999999999989 Td (\(studentId, courseId\) in an Enrollment table/class or validation in the enrollment service.) Tj ET
+BT /F1 7 Tf 510 18 Td (1/1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000003610 00000 n 
+0000003678 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+3753
+%%EOF
